@@ -11,6 +11,11 @@ open class SegmentedController: Pager {
     
     private func findScrollView(in: Any?) -> UIScrollView? {
         guard let inReflecting = `in` else { return nil }
+        if let tableViewController = inReflecting as? UITableViewController {
+            return tableViewController.tableView
+        } else if let collectionViewController = inReflecting as? UICollectionViewController {
+            return collectionViewController.collectionView
+        }
         return Mirror(reflecting: inReflecting).children.first(where: { $0.value is UIScrollView })?.value as? UIScrollView
     }
     
@@ -19,18 +24,23 @@ open class SegmentedController: Pager {
             
             func toggleShadow(context: PageTransitionContext, from: Bool) {
                 guard segmenter.isShadowShouldShow else { return }
-
+                
                 var scrollView: UIScrollView?
 
                 let segment: Segmenter.Segment
                 if from {
-                    scrollView = self.findScrollView(in: context.toViewController)
-                    segment = segmenter.segments[context.toIndex]
-                } else {
                     scrollView = self.findScrollView(in: context.fromViewController)
                     segment = segmenter.segments[min(max(context.fromIndex, 0), segmenter.segments.count)]
+                } else {
+                    scrollView = self.findScrollView(in: context.toViewController)
+                    segment = segmenter.segments[context.toIndex]
                 }
-                segmenter.isShadowHidden = segment.isShouldHideShadow ? false : (scrollView?.contentOffset.y ?? 0 <= 1.0)
+                
+                guard !segment.isShouldHideShadow else {
+                    segmenter.isShadowHidden = true
+                    return
+                }
+                segmenter.isShadowHidden = segment.isShouldHideShadow ? true : (scrollView?.contentOffset.y ?? 0 <= 1.0)
             }
             
             pageController.pageCoordinator?.animateAlongsidePaging(in: segmenter, animation: {
@@ -64,6 +74,7 @@ open class SegmentedController: Pager {
         
         if let segmentedable = viewController as? Segmentedable {
             self.segmenter = segmentedable.segmenter
+            segmentedable.segmenter.isShadowHidden = true
             if let segmenterDelgate = segmentedable.segmenter.delegate {
                 self.segmenterDelgate = segmenterDelgate
                 self.segmenter?.delegate = self
@@ -77,8 +88,18 @@ open class SegmentedController: Pager {
 
 extension SegmentedController: SegmenterSelectedDelegate {
     
-    public func segmenter(_ segmenter: Segmenter, didSelectSegmentAt index: Int, with segment: Segmenter.Segment) {
+    public func segmenter(_ segmenter: Segmenter, didSelect index: Int, withSegment: Segmenter.Segment, fromIndex: Int, fromSegment: Segmenter.Segment) {
         setCurrentIndex(index, animated: true)
-        segmenterDelgate?.segmenter(segmenter, didSelectSegmentAt: index, with: segment)
+        segmenterDelgate?.segmenter(segmenter, didSelect: index, withSegment: withSegment, fromIndex: index, fromSegment: fromSegment)
+        
+        // bugfix: touch to change segmenter and the segmenter's shadow not be hidden when the scroll view is scrolling
+        if let fromScrollView = findScrollView(in: viewControllers?[fromIndex]) {
+            fromScrollView.setContentOffset(fromScrollView.contentOffset, animated: false)
+        }
+        
+        guard segmenter.isShadowShouldShow, let scrollView = findScrollView(in: self.viewControllers?[index]) else {
+            return
+        }
+        segmenter.isShadowHidden = withSegment.isShouldHideShadow ? true : (scrollView.contentOffset.y <= 1.0)
     }
 }

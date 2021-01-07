@@ -14,7 +14,7 @@ struct SegmentedControllerKeys {
 public struct Page {
     public var title: String
     public var controller: UIViewController
-    public var isShouldHideShadow = false
+    public var isShadowHidden = false
 }
 
 public protocol SegmentedControllerable: Segmentedable {
@@ -51,10 +51,13 @@ public extension SegmentedControllerable where Self: UIViewController {
             objc_setAssociatedObject(self, &SegmentedControllerKeys.pagesKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             pager.viewControllers = newValue.map { $0.controller }
-            segmenter.segments = newValue.map { Segmenter.Segment(title: $0.title) }
+            
+            segmenter.segments = newValue.map { Segmenter.Segment(title: $0.title, isShouldHideShadow: $0.isShadowHidden) }
         }
     }
     
+    /// set the initial index of the `pager` and the `segmenter`
+    /// default is 0
     var initialIndex: Int {
         get {
             objc_getAssociatedObject(self, &SegmentedControllerKeys.initialIndexKey) as? Int ?? 0
@@ -66,9 +69,12 @@ public extension SegmentedControllerable where Self: UIViewController {
                 fatalError("should be set `pages` first.")
             }
             
-            UIView.performWithoutAnimation {
-                self.segmenter.currentIndex = newValue
-                self.pager.currentIndex = newValue
+            // bugfix: set `initialIndex` in viewDidLoad has got an error: `[TableView] Warning once only: UITableView was told to layout its visible cells and other contents without being in the view hierarchy (the table view or one of its superviews has not been added to a window).`
+            DispatchQueue.main.async {
+                UIView.performWithoutAnimation {
+                    self.segmenter.currentIndex = newValue
+                    self.pager.currentIndex = newValue
+                }
             }
         }
     }
