@@ -12,9 +12,16 @@ struct SegmentedControllerKeys {
 }
 
 public struct Page {
-    public var title: String
+    public var segment: Segmenter.Segment
     public var controller: UIViewController
-    public var isShadowHidden = false
+    
+    public init(segment: Segmenter.Segment, controller: UIViewController) {
+        self.segment = segment
+        self.controller = controller
+    }
+    public init(title: String?, controller: UIViewController) {
+        self.init(segment: .init(title: title), controller: controller)
+    }
 }
 
 public protocol SegmentedControllerable: Segmentedable {
@@ -51,7 +58,7 @@ public extension SegmentedControllerable where Self: UIViewController {
             objc_setAssociatedObject(self, &SegmentedControllerKeys.pagesKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
             self.pager.viewControllers = newValue.map { $0.controller }
-            self.segmenter.segments = newValue.map { Segmenter.Segment(title: $0.title, isShouldHideShadow: $0.isShadowHidden) }
+            self.segmenter.segments = newValue.map { $0.segment }
         }
     }
     

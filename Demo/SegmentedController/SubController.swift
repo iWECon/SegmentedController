@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Segmenter
 
 class SubController: UIViewController, SegmentedControllerable  {
     
@@ -22,7 +23,7 @@ class SubController: UIViewController, SegmentedControllerable  {
         segmenter.distribution = .centered
         pages = [
             .init(title: "赤", controller: TableViewController()),
-            .init(title: "橙", controller: TableViewController(), isShadowHidden: true),
+            .init(segment: .init(title: "橙", isShouldHideShadow: true), controller: TableViewController()),
             .init(title: "黄", controller: vc(.yellow)),
             .init(title: "绿", controller: vc(.green)),
             .init(title: "青", controller: vc(.cyan)),
