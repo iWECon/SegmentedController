@@ -69,8 +69,18 @@ open class SegmentedController: Pager {
         
         collectionView?.alwaysBounceHorizontal = false
         collectionView?.alwaysBounceVertical = false
-        collectionView?.automaticallyAdjustsScrollIndicatorInsets = false
-        collectionView?.contentInsetAdjustmentBehavior = .never
+        
+        if #available(iOS 13.0, *) {
+            collectionView?.automaticallyAdjustsScrollIndicatorInsets = false
+        } else {
+            // Fallback on earlier versions
+            if #available(iOS 11.0, *) {
+                collectionView?.contentInsetAdjustmentBehavior = .never
+            } else {
+                // Fallback on earlier versions
+                viewController.automaticallyAdjustsScrollViewInsets = false
+            }
+        }
         
         if let segmentedable = viewController as? Segmentedable {
             self.segmenter = segmentedable.segmenter
