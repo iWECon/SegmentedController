@@ -50,9 +50,8 @@ public extension SegmentedControllerable where Self: UIViewController {
         set {
             objc_setAssociatedObject(self, &SegmentedControllerKeys.pagesKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             
-            pager.viewControllers = newValue.map { $0.controller }
-            
-            segmenter.segments = newValue.map { Segmenter.Segment(title: $0.title, isShouldHideShadow: $0.isShadowHidden) }
+            self.pager.viewControllers = newValue.map { $0.controller }
+            self.segmenter.segments = newValue.map { Segmenter.Segment(title: $0.title, isShouldHideShadow: $0.isShadowHidden) }
         }
     }
     

@@ -21,7 +21,12 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        tableView.automaticallyAdjustsScrollIndicatorInsets = false
+        if #available(iOS 13.0, *) {
+            tableView.automaticallyAdjustsScrollIndicatorInsets = false
+        } else {
+            // Fallback on earlier versions
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         
         for i in 0 ..< 100 {
@@ -31,12 +36,20 @@ class TableViewController: UITableViewController {
     
     // bugfix: the scrollView's scroll indicator insets inaccuracy
     override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
+        if #available(iOS 11.0, *) {
+            super.viewSafeAreaInsetsDidChange()
+        } else {
+            // Fallback on earlier versions
+        }
         
         if #available(iOS 11.1, *) {
             tableView.verticalScrollIndicatorInsets = view.safeAreaInsets
         } else {
-            tableView.scrollIndicatorInsets = view.safeAreaInsets
+            if #available(iOS 11.0, *) {
+                tableView.scrollIndicatorInsets = view.safeAreaInsets
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 

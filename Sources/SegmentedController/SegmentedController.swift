@@ -70,6 +70,7 @@ open class SegmentedController: Pager {
         collectionView?.alwaysBounceHorizontal = false
         collectionView?.alwaysBounceVertical = false
         
+        // bugfix: embed SegmentedController using SegmentedController, the view's safeArea impact layout
         if #available(iOS 13.0, *) {
             collectionView?.automaticallyAdjustsScrollIndicatorInsets = false
         } else {
@@ -85,6 +86,8 @@ open class SegmentedController: Pager {
         if let segmentedable = viewController as? Segmentedable {
             self.segmenter = segmentedable.segmenter
             segmentedable.segmenter.isShadowHidden = true
+            // bring segmenter to front
+            viewController.view.bringSubviewToFront(segmentedable.segmenter)
             if let segmenterDelgate = segmentedable.segmenter.delegate {
                 self.segmenterDelgate = segmenterDelgate
                 self.segmenter?.delegate = self
