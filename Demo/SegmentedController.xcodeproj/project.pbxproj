@@ -15,8 +15,10 @@
 		081F65CF25A5E656000602E7 /* SegmentedControllerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */; };
 		081F65D025A5E656000602E7 /* SegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F65CE25A5E656000602E7 /* SegmentedController.swift */; };
 		081F65D425A5E67A000602E7 /* Pager in Frameworks */ = {isa = PBXBuildFile; productRef = 081F65D325A5E67A000602E7 /* Pager */; };
-		081F65D825A5E69F000602E7 /* Segmenter in Frameworks */ = {isa = PBXBuildFile; productRef = 081F65D725A5E69F000602E7 /* Segmenter */; };
+		0865379225AC041E00E69F27 /* YTPageController in Frameworks */ = {isa = PBXBuildFile; productRef = 0865379125AC041E00E69F27 /* YTPageController */; };
+		0865379925AC05C800E69F27 /* Segmenter in Frameworks */ = {isa = PBXBuildFile; productRef = 0865379825AC05C800E69F27 /* Segmenter */; };
 		0883104025A84EC0000B362C /* SubController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883103F25A84EC0000B362C /* SubController.swift */; };
+		08BC4F9825AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC4F9725AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift */; };
 		08F2D6B825A6A7AE008A629D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F2D6B725A6A7AE008A629D /* TableViewController.swift */; };
 		08F2D6BB25A6AF28008A629D /* ContainsTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F2D6BA25A6AF28008A629D /* ContainsTableViewViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,7 @@
 		081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControllerable.swift; sourceTree = "<group>"; };
 		081F65CE25A5E656000602E7 /* SegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedController.swift; sourceTree = "<group>"; };
 		0883103F25A84EC0000B362C /* SubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubController.swift; sourceTree = "<group>"; };
+		08BC4F9725AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControllersControlShadowable.swift; sourceTree = "<group>"; };
 		08F2D6B725A6A7AE008A629D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		08F2D6BA25A6AF28008A629D /* ContainsTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainsTableViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,7 +45,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				081F65D425A5E67A000602E7 /* Pager in Frameworks */,
-				081F65D825A5E69F000602E7 /* Segmenter in Frameworks */,
+				0865379225AC041E00E69F27 /* YTPageController in Frameworks */,
+				0865379925AC05C800E69F27 /* Segmenter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +100,7 @@
 			children = (
 				081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */,
 				081F65CE25A5E656000602E7 /* SegmentedController.swift */,
+				08BC4F9725AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift */,
 			);
 			path = SegmentedController;
 			sourceTree = "<group>";
@@ -118,7 +123,8 @@
 			name = SegmentedController;
 			packageProductDependencies = (
 				081F65D325A5E67A000602E7 /* Pager */,
-				081F65D725A5E69F000602E7 /* Segmenter */,
+				0865379125AC041E00E69F27 /* YTPageController */,
+				0865379825AC05C800E69F27 /* Segmenter */,
 			);
 			productName = SegmentedController;
 			productReference = 081F65B325A5E646000602E7 /* SegmentedController.app */;
@@ -149,7 +155,8 @@
 			mainGroup = 081F65AA25A5E646000602E7;
 			packageReferences = (
 				081F65D225A5E67A000602E7 /* XCRemoteSwiftPackageReference "Pager" */,
-				081F65D625A5E69F000602E7 /* XCRemoteSwiftPackageReference "Segmenter" */,
+				0865379025AC041E00E69F27 /* XCRemoteSwiftPackageReference "YTPageController" */,
+				0865379725AC05C800E69F27 /* XCRemoteSwiftPackageReference "Segmenter" */,
 			);
 			productRefGroup = 081F65B425A5E646000602E7 /* Products */;
 			projectDirPath = "";
@@ -182,6 +189,7 @@
 				08F2D6B825A6A7AE008A629D /* TableViewController.swift in Sources */,
 				081F65BB25A5E646000602E7 /* ViewController.swift in Sources */,
 				081F65B725A5E646000602E7 /* AppDelegate.swift in Sources */,
+				08BC4F9825AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift in Sources */,
 				0883104025A84EC0000B362C /* SubController.swift in Sources */,
 				081F65D025A5E656000602E7 /* SegmentedController.swift in Sources */,
 				08F2D6BB25A6AF28008A629D /* ContainsTableViewViewController.swift in Sources */,
@@ -332,7 +340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = P55DG9QH44;
 				INFOPLIST_FILE = SegmentedController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -352,7 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = P55DG9QH44;
 				INFOPLIST_FILE = SegmentedController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -398,12 +406,20 @@
 				minimumVersion = 1.0.4;
 			};
 		};
-		081F65D625A5E69F000602E7 /* XCRemoteSwiftPackageReference "Segmenter" */ = {
+		0865379025AC041E00E69F27 /* XCRemoteSwiftPackageReference "YTPageController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iWECon/YTPageController";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		0865379725AC05C800E69F27 /* XCRemoteSwiftPackageReference "Segmenter" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/iWECon/Segmenter";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.2;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -414,9 +430,14 @@
 			package = 081F65D225A5E67A000602E7 /* XCRemoteSwiftPackageReference "Pager" */;
 			productName = Pager;
 		};
-		081F65D725A5E69F000602E7 /* Segmenter */ = {
+		0865379125AC041E00E69F27 /* YTPageController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 081F65D625A5E69F000602E7 /* XCRemoteSwiftPackageReference "Segmenter" */;
+			package = 0865379025AC041E00E69F27 /* XCRemoteSwiftPackageReference "YTPageController" */;
+			productName = YTPageController;
+		};
+		0865379825AC05C800E69F27 /* Segmenter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0865379725AC05C800E69F27 /* XCRemoteSwiftPackageReference "Segmenter" */;
 			productName = Segmenter;
 		};
 /* End XCSwiftPackageProductDependency section */

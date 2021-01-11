@@ -19,8 +19,8 @@ class SubController: UIViewController, SegmentedControllerable  {
             return vc
         }
         
-        segmenter.segmentConfigure = .minor
-        segmenter.distribution = .centered
+        segmenter.segmentConfigure = .main
+        segmenter.distribution = .default
         pages = [
             .init(title: "赤", controller: TableViewController()),
             .init(segment: .init(title: "橙", isShouldHideShadow: true), controller: TableViewController()),
