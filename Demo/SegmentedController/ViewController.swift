@@ -24,7 +24,7 @@ class ViewController: Pager, SegmentedControllerable {
 //
 //        pages = [
 //            .init(title: "赤", controller: TableViewController()),
-//            .init(title: "橙", controller: TableViewController(), isShadowHidden: true),
+//            .init(title: "橙", controller: TableViewController()),
 //            .init(title: "黄", controller: vc(.yellow)),
 //            .init(title: "绿", controller: vc(.green)),
 //            .init(title: "青", controller: vc(.cyan)),
@@ -34,7 +34,7 @@ class ViewController: Pager, SegmentedControllerable {
 //
 //        initialIndex = 1
         
-        // styles 2
+//         styles 2
         pages = [
             .init(title: "left", controller: SubController()),
             .init(title: "right", controller: SubController())

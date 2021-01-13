@@ -19,7 +19,7 @@ class SubController: UIViewController, SegmentedControllerable  {
             return vc
         }
         
-        segmenter.segmentConfigure = .main
+        segmenter.segmentConfigure = .minor
         segmenter.distribution = .default
         pages = [
             .init(title: "赤", controller: TableViewController()),
@@ -39,7 +39,7 @@ class SubController: UIViewController, SegmentedControllerable  {
         super.viewDidLayoutSubviews()
         
         segmenter.frame = .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 34)
-        pager.view.frame = .init(x: 0, y: segmenter.frame.height, width: segmenter.frame.width, height: view.frame.height - segmenter.frame.height)
+        pager.view.frame = .init(x: 0, y: segmenter.frame.maxY, width: segmenter.frame.width, height: view.frame.height - segmenter.frame.height)
     }
 
 }

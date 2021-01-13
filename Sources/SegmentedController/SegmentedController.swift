@@ -6,7 +6,7 @@ import YTPageController
 
 open class SegmentedController: Pager {
     
-    weak var segmenter: Segmenter?
+    public weak var segmenter: Segmenter?
     private weak var segmenterDelgate: SegmenterSelectedDelegate?
     
     private func findScrollView(in: Any?) -> UIScrollView? {
