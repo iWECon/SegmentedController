@@ -24,12 +24,16 @@ public struct Page {
     }
 }
 
+
+/// 快速构建协议，包含一个 pager，pages 和 initialIndex
 public protocol SegmentedControllerable: Segmentedable {
     
     var pager: SegmentedController { get set }
     
+    /// 设置控制器以及对应的 segment 标题/属性
     var pages: [Page] { get set }
     
+    /// 设置初始化显示的 page
     var initialIndex: Int { get set }
 }
 

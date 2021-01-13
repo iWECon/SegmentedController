@@ -12,8 +12,8 @@ open class SegmentedController: Pager {
     private func findScrollView(in: Any?) -> UIScrollView? {
         guard let inReflecting = `in` else { return nil }
         
-        if inReflecting is SegmentedControllersControlShadowable {
-            return (inReflecting as? SegmentedControllersControlShadowable)?.scrollView
+        if inReflecting is SegmentedControllerShadowControlable, let scrollView = (inReflecting as? SegmentedControllerShadowControlable)?.scrollView {
+            return scrollView
         }
         
         if let tableViewController = inReflecting as? UITableViewController {

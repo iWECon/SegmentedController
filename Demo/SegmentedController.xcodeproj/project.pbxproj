@@ -16,9 +16,11 @@
 		081F65D025A5E656000602E7 /* SegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F65CE25A5E656000602E7 /* SegmentedController.swift */; };
 		081F65D425A5E67A000602E7 /* Pager in Frameworks */ = {isa = PBXBuildFile; productRef = 081F65D325A5E67A000602E7 /* Pager */; };
 		0865379925AC05C800E69F27 /* Segmenter in Frameworks */ = {isa = PBXBuildFile; productRef = 0865379825AC05C800E69F27 /* Segmenter */; };
+		0876625125AF151D00FB311D /* SegmentedTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876624F25AF151D00FB311D /* SegmentedTableController.swift */; };
+		0876625225AF151D00FB311D /* SegmentedCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876625025AF151D00FB311D /* SegmentedCollectionController.swift */; };
 		0883104025A84EC0000B362C /* SubController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0883103F25A84EC0000B362C /* SubController.swift */; };
 		088D941325AD882500451065 /* YTPageController in Frameworks */ = {isa = PBXBuildFile; productRef = 088D941225AD882500451065 /* YTPageController */; };
-		08BC4F9825AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC4F9725AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift */; };
+		08BC4F9825AC27F4000D3DA2 /* SegmentedControllerShadowControlable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BC4F9725AC27F4000D3DA2 /* SegmentedControllerShadowControlable.swift */; };
 		08F2D6B825A6A7AE008A629D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F2D6B725A6A7AE008A629D /* TableViewController.swift */; };
 		08F2D6BB25A6AF28008A629D /* ContainsTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F2D6BA25A6AF28008A629D /* ContainsTableViewViewController.swift */; };
 /* End PBXBuildFile section */
@@ -33,8 +35,10 @@
 		081F65C425A5E646000602E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControllerable.swift; sourceTree = "<group>"; };
 		081F65CE25A5E656000602E7 /* SegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedController.swift; sourceTree = "<group>"; };
+		0876624F25AF151D00FB311D /* SegmentedTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedTableController.swift; sourceTree = "<group>"; };
+		0876625025AF151D00FB311D /* SegmentedCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCollectionController.swift; sourceTree = "<group>"; };
 		0883103F25A84EC0000B362C /* SubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubController.swift; sourceTree = "<group>"; };
-		08BC4F9725AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControllersControlShadowable.swift; sourceTree = "<group>"; };
+		08BC4F9725AC27F4000D3DA2 /* SegmentedControllerShadowControlable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControllerShadowControlable.swift; sourceTree = "<group>"; };
 		08F2D6B725A6A7AE008A629D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		08F2D6BA25A6AF28008A629D /* ContainsTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainsTableViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,11 +102,21 @@
 		081F65CC25A5E656000602E7 /* SegmentedController */ = {
 			isa = PBXGroup;
 			children = (
+				0876624E25AF151D00FB311D /* Controllers */,
 				081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */,
 				081F65CE25A5E656000602E7 /* SegmentedController.swift */,
-				08BC4F9725AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift */,
+				08BC4F9725AC27F4000D3DA2 /* SegmentedControllerShadowControlable.swift */,
 			);
 			path = SegmentedController;
+			sourceTree = "<group>";
+		};
+		0876624E25AF151D00FB311D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0876624F25AF151D00FB311D /* SegmentedTableController.swift */,
+				0876625025AF151D00FB311D /* SegmentedCollectionController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,10 +203,12 @@
 				08F2D6B825A6A7AE008A629D /* TableViewController.swift in Sources */,
 				081F65BB25A5E646000602E7 /* ViewController.swift in Sources */,
 				081F65B725A5E646000602E7 /* AppDelegate.swift in Sources */,
-				08BC4F9825AC27F4000D3DA2 /* SegmentedControllersControlShadowable.swift in Sources */,
+				08BC4F9825AC27F4000D3DA2 /* SegmentedControllerShadowControlable.swift in Sources */,
 				0883104025A84EC0000B362C /* SubController.swift in Sources */,
+				0876625225AF151D00FB311D /* SegmentedCollectionController.swift in Sources */,
 				081F65D025A5E656000602E7 /* SegmentedController.swift in Sources */,
 				08F2D6BB25A6AF28008A629D /* ContainsTableViewViewController.swift in Sources */,
+				0876625125AF151D00FB311D /* SegmentedTableController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
