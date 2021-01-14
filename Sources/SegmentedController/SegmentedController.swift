@@ -107,7 +107,7 @@ open class SegmentedController: Pager {
 extension SegmentedController: SegmenterSelectedDelegate {
     
     public func segmenter(_ segmenter: Segmenter, didSelect index: Int, withSegment: Segmenter.Segment, fromIndex: Int, fromSegment: Segmenter.Segment) {
-        setCurrentIndex(index, animated: true)
+        setCurrentIndex(index, animated: false)
         segmenterDelgate?.segmenter(segmenter, didSelect: index, withSegment: withSegment, fromIndex: index, fromSegment: fromSegment)
         
         // bugfix: touch to change segmenter and the segmenter's shadow not be hidden when the scroll view is scrolling
