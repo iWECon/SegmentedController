@@ -9,16 +9,12 @@ import UIKit
 
 open class SegmentedTableController: UITableViewController, SegmentedControllerShadowControlable {
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    public var scrollView: UIScrollView? {
+        tableView
     }
     
-    open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let segmentedController = self.segmentedController else { return }
-        guard let index = segmentedController.viewControllers?.firstIndex(where: { $0 == self }) else { return }
-        guard segmentedController.segmenter?.segments[index].isShouldHideShadow == false else { return }
-        segmentedController.segmenter?.isShadowHidden = scrollView.contentOffset.y <= 1.0
+    public var segmentedController: SegmentedController? {
+        self.parent as? SegmentedController
     }
     
 }

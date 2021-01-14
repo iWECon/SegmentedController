@@ -25,29 +25,35 @@ open class SegmentedController: Pager {
     }
     
     public override func pageController(_ pageController: PageController, willStartTransition context: PageTransitionContext) {
-        if let segmenter = segmenter, context.animationDuration > 0 {
+        defer {
+            super.pageController(pageController, willStartTransition: context)
+        }
+        
+        guard let segmenter = segmenter else {
+            return
+        }
+        func toggleShadow(context: PageTransitionContext, from: Bool) {
+            guard segmenter.isShadowShouldShow else { return }
             
-            func toggleShadow(context: PageTransitionContext, from: Bool) {
-                guard segmenter.isShadowShouldShow else { return }
-                
-                var scrollView: UIScrollView?
-
-                let segment: Segmenter.Segment
-                if from {
-                    scrollView = self.findScrollView(in: context.fromViewController)
-                    segment = segmenter.segments[min(max(context.fromIndex, 0), segmenter.segments.count)]
-                } else {
-                    scrollView = self.findScrollView(in: context.toViewController)
-                    segment = segmenter.segments[context.toIndex]
-                }
-                
-                guard !segment.isShouldHideShadow else {
-                    segmenter.isShadowHidden = true
-                    return
-                }
-                segmenter.isShadowHidden = segment.isShouldHideShadow ? true : (scrollView?.contentOffset.y ?? 0 <= 1.0)
+            var scrollView: UIScrollView?
+            
+            let segment: Segmenter.Segment
+            if from {
+                scrollView = self.findScrollView(in: context.fromViewController)
+                segment = segmenter.segments[min(max(context.fromIndex, 0), segmenter.segments.count)]
+            } else {
+                scrollView = self.findScrollView(in: context.toViewController)
+                segment = segmenter.segments[context.toIndex]
             }
             
+            guard !segment.isShouldHideShadow else {
+                segmenter.isShadowHidden = true
+                return
+            }
+            segmenter.isShadowHidden = segment.isShouldHideShadow ? true : (scrollView?.contentOffset.y ?? 0 <= 1.0)
+        }
+        
+        if context.animationDuration > 0 {
             pageController.pageCoordinator?.animateAlongsidePaging(in: segmenter, animation: {
                 [weak segmenter] (context) in
                 segmenter?.isUserInteractionEnabled = false
@@ -63,9 +69,9 @@ open class SegmentedController: Pager {
                 }
                 segmenter?.isUserInteractionEnabled = true
             })
+        } else {
+            toggleShadow(context: context, from: false)
         }
-        
-        super.pageController(pageController, willStartTransition: context)
     }
     
     @discardableResult

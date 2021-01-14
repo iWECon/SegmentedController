@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/iWECon/Segmenter",
         "state": {
           "branch": null,
-          "revision": "1515e3a0ed4613a1f2c379a180e5d4aff7426486",
-          "version": "1.4.3"
+          "revision": "83e3b8d459035e5f291a808d62e0e28334ddf3d6",
+          "version": "1.4.5"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/iwecon/ytpagecontroller",
         "state": {
           "branch": null,
-          "revision": "66f10561973cd7c638a5f565349b9cd714e3011e",
-          "version": "1.1.3"
+          "revision": "82442fe25500a89a85e63dce38443481cf50a499",
+          "version": "1.1.4"
         }
       }
     ]

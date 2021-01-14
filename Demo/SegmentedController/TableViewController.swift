@@ -73,4 +73,8 @@ class TableViewController: SegmentedTableController {
 
         return cell
     }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        segmentedController?.segmenter?.isShadowHidden = scrollView.contentOffset.y <= 1.0
+    }
 }
