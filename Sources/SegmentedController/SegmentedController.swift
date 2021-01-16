@@ -96,7 +96,10 @@ open class SegmentedController: Pager {
         
         if let segmentedable = viewController as? Segmentedable {
             self.segmenter = segmentedable.segmenter
-            segmentedable.segmenter.isShadowHidden = true
+            // bugfix: shadow hide animation when view did load
+            UIView.performWithoutAnimation {
+                segmentedable.segmenter.isShadowHidden = true
+            }
             // bring segmenter to front
             viewController.view.bringSubviewToFront(segmentedable.segmenter)
             if let segmenterDelgate = segmentedable.segmenter.delegate {
