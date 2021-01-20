@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Pager
 import Segmenter
 
 struct SegmentedControllerKeys {
@@ -26,7 +27,7 @@ public struct Page {
 
 
 /// 快速构建协议，包含一个 pager，pages 和 initialIndex
-public protocol SegmentedControllerable: Segmentedable {
+public protocol SegmentedControllerable: Segmentedable, Pagable {
     
     var pager: SegmentedController { get set }
     

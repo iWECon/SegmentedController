@@ -9,8 +9,18 @@ import UIKit
 import Segmenter
 import Pager
 
-class ViewController: Pager, SegmentedControllerable {
+class ACollection: UICollectionView {
+    
+}
 
+class ViewController: UIViewController, SegmentedControllerable {
+    
+    var pagerCollectionView: PagerCollectionViewProvider? {
+        return { (rect, layout) -> UICollectionView in
+            ACollection(frame: rect, collectionViewLayout: layout)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
