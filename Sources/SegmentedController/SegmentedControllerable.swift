@@ -7,7 +7,6 @@ import Pager
 import Segmenter
 
 struct SegmentedControllerKeys {
-    static var pagerKey = "PagableKeys.pagerKey"
     static var pagesKey = "SegmentedControllerKeys.pagesKey"
     static var initialIndexKey = "SegmentedControllerKeys.initialIndexKey"
 }
@@ -42,16 +41,16 @@ public extension SegmentedControllerable where Self: UIViewController {
     
     var pager: SegmentedController {
         get {
-            guard let pager = objc_getAssociatedObject(self, &SegmentedControllerKeys.pagerKey) as? SegmentedController else {
+            guard let pager = objc_getAssociatedObject(self, &PagableKeys.pagerKey) as? SegmentedController else {
                 let pager = SegmentedController()
                 pager.moveTo(self)
-                objc_setAssociatedObject(self, &SegmentedControllerKeys.pagerKey, pager, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                objc_setAssociatedObject(self, &PagableKeys.pagerKey, pager, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 return pager
             }
             return pager
         }
         set {
-            objc_setAssociatedObject(self, &SegmentedControllerKeys.pagerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &PagableKeys.pagerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
