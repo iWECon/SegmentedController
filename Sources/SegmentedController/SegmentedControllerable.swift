@@ -7,7 +7,7 @@ import Pager
 import Segmenter
 
 struct SegmentedControllerKeys {
-    static var pagerKey = "SegmentedControllerKeys.pagerKey"
+    static var pagerKey = "PagableKeys.pagerKey"
     static var pagesKey = "SegmentedControllerKeys.pagesKey"
     static var initialIndexKey = "SegmentedControllerKeys.initialIndexKey"
 }
