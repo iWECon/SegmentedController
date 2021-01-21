@@ -19,7 +19,7 @@ public struct Page {
         self.segment = segment
         self.controller = controller
     }
-    public init(title: String?, controller: UIViewController) {
+    public init(title: String, controller: UIViewController) {
         self.init(segment: .init(title: title), controller: controller)
     }
 }
