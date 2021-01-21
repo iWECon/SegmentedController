@@ -25,6 +25,7 @@ class ViewController: UIViewController, SegmentedControllerable {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // let _ = (self as? Pagable)?.pager
         // style 1
 //        func vc(_ backgroundColor: UIColor) -> UIViewController {
 //            let vc = UIViewController()

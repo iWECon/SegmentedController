@@ -81,6 +81,18 @@ open class SegmentedController: Pager {
         collectionView?.alwaysBounceHorizontal = false
         collectionView?.alwaysBounceVertical = false
         
+        
+        if let pagable = viewController as? SegmentedControllerable {
+            if let pvlp = pagable.pagerCollectionViewLayout {
+                self.collectionViewLayoutProvider = { () -> UICollectionViewFlowLayout in
+                    pvlp
+                }
+            }
+            if let pvp = pagable.pagerCollectionView {
+                self.collectionViewProvider = pvp
+            }
+        }
+        
         // bugfix: embed SegmentedController using SegmentedController, the view's safeArea impact layout
         if #available(iOS 13.0, *) {
             collectionView?.automaticallyAdjustsScrollIndicatorInsets = false

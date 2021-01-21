@@ -26,6 +26,7 @@ public struct Page {
 
 
 /// 快速构建协议，包含一个 pager，pages 和 initialIndex
+/// ⚠️: `该协议只能用在 UIViewController 上`
 public protocol SegmentedControllerable: Segmentedable, Pagable {
     
     var pager: SegmentedController { get set }
@@ -100,5 +101,25 @@ public extension SegmentedControllerable where Self: UIViewController {
         
         segmenter.frame = .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: statusBarHeight + Segmenter.Height)
         pager.view.frame = .init(x: 0, y: segmenter.frame.height, width: segmenter.frame.width, height: view.frame.height - segmenter.frame.height)
+    }
+}
+
+
+// bugfix: 使用 SegmentedControllerable, 在 pager 初始化之前使用 (self as? Pagable)?.pager 导致 pager 初始化错误的问题
+extension Pagable where Self: UIViewController & SegmentedControllerable {
+    
+    var pager: Pager {
+        get {
+            guard let pager = objc_getAssociatedObject(self, &PagableKeys.pagerKey) as? Pager else {
+                let pager = SegmentedController()
+                pager.moveTo(self)
+                objc_setAssociatedObject(self, &PagableKeys.pagerKey, pager, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                return pager
+            }
+            return pager
+        }
+        set {
+            objc_setAssociatedObject(self, &PagableKeys.pagerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
 }

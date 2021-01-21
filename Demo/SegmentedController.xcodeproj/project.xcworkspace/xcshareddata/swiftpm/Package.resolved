@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/iWECon/Pager",
         "state": {
           "branch": null,
-          "revision": "c121e5debb13443b0a2a2989f854a19d790429fd",
-          "version": "1.0.5"
+          "revision": "c6d1cf11b5a698a51e264319fe70a43723fd88f6",
+          "version": "1.0.7"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/iwecon/ytpagecontroller",
         "state": {
           "branch": null,
-          "revision": "dd80e7e62f24a5490b0ddf5c03f22b6de093d471",
-          "version": "1.1.5"
+          "revision": "d8d2adb778a1f7f5a0ef5a155faf7573007b2792",
+          "version": "1.1.6"
         }
       }
     ]
