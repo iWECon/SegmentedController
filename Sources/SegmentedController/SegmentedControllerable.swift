@@ -83,6 +83,10 @@ public extension SegmentedControllerable where Self: UIViewController {
             // bugfix: set `initialIndex` in viewDidLoad has got an error: `[TableView] Warning once only: UITableView was told to layout its visible cells and other contents without being in the view hierarchy (the table view or one of its superviews has not been added to a window).`
             DispatchQueue.main.async {
                 UIView.performWithoutAnimation {
+                    // bugfix
+                    self.pager.collectionView?.reloadData()
+                    self.pager.collectionView?.layoutIfNeeded()
+                    
                     self.segmenter.currentIndex = newValue
                     self.pager.currentIndex = newValue
                 }
