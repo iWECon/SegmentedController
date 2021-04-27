@@ -8,3 +8,18 @@
 一般情况下，实现 SegmentedControllable 协议即可
 
 参考 Demo 中的 `ViewController.swift`
+
+
+## Installation
+
+#### Swift Package Manager
+
+```
+.package(url: "https://github.com/iWECon/SegmentedController", from: "1.0.0")
+```
+
+#### Cocoapods
+
+```
+pod 'SegmentedController', :git => 'https://github.com/iWECon/SegmentedController'
+```

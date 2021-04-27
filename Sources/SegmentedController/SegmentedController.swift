@@ -66,6 +66,8 @@ open class SegmentedController: Pager {
                     segmenter?.currentIndex = context.fromIndex
                     
                     toggleShadow(context: context, from: true)
+                } else {
+                    segmenter?.currentIndex = context.toIndex
                 }
                 segmenter?.isUserInteractionEnabled = true
             })
