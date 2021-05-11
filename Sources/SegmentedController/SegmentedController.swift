@@ -33,7 +33,7 @@ open class SegmentedController: Pager {
             return
         }
         func toggleShadow(context: PageTransitionContext, from: Bool) {
-            guard segmenter.isShadowShouldShow else { return }
+            guard segmenter.isShadowShouldShow, context.toIndex <= segmenter.segments.count - 1 else { return }
             
             var scrollView: UIScrollView?
             
