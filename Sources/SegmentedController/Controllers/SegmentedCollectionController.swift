@@ -14,12 +14,12 @@ open class SegmentedCollectionController: UICollectionViewController, SegmentedC
     }
     
     public var segmentedController: SegmentedController? {
-        var parent = self.parent
+        var parent: Any? = self.parent
         while parent != nil, !(parent is SegmentedController) {
             if parent is SegmentedController {
                 break
             }
-            parent = parent?.parent
+            parent = (parent as? UIViewController)?.parent
         }
         // bugfix: when parent == nil
         if parent == nil {
