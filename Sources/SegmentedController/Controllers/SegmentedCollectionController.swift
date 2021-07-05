@@ -21,6 +21,16 @@ open class SegmentedCollectionController: UICollectionViewController, SegmentedC
             }
             parent = parent?.parent
         }
+        // bugfix: when parent == nil
+        if parent == nil {
+            parent = self.next
+            while parent != nil, !(parent is SegmentedController) {
+                if parent is SegmentedController {
+                    break
+                }
+                parent = (parent as? UIResponder)?.next
+            }
+        }
         return parent as? SegmentedController
     }
     
