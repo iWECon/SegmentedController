@@ -35,6 +35,7 @@
 		081F65C425A5E646000602E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControllerable.swift; sourceTree = "<group>"; };
 		081F65CE25A5E656000602E7 /* SegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedController.swift; sourceTree = "<group>"; };
+		083E0FF727F2B21F00B381C4 /* SegmentedController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SegmentedController.podspec; path = ../SegmentedController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0876624F25AF151D00FB311D /* SegmentedTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedTableController.swift; sourceTree = "<group>"; };
 		0876625025AF151D00FB311D /* SegmentedCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCollectionController.swift; sourceTree = "<group>"; };
 		0883103F25A84EC0000B362C /* SubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubController.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		081F65AA25A5E646000602E7 = {
 			isa = PBXGroup;
 			children = (
+				083E0FF727F2B21F00B381C4 /* SegmentedController.podspec */,
 				081F65CB25A5E656000602E7 /* Sources */,
 				081F65B525A5E646000602E7 /* SegmentedController */,
 				081F65B425A5E646000602E7 /* Products */,
@@ -431,7 +433,7 @@
 			repositoryURL = "https://github.com/iWECon/Segmenter";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 		088D941125AD882500451065 /* XCRemoteSwiftPackageReference "ytpagecontroller" */ = {

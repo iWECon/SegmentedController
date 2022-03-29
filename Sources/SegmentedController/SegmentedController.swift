@@ -37,7 +37,7 @@ open class SegmentedController: Pager {
             
             var scrollView: UIScrollView?
             
-            let segment: Segmenter.Segment
+            let segment: Segment
             if from {
                 scrollView = self.findScrollView(in: context.fromViewController)
                 segment = segmenter.segments[min(max(context.fromIndex, 0), segmenter.segments.count)]
@@ -129,9 +129,9 @@ open class SegmentedController: Pager {
 
 extension SegmentedController: SegmenterSelectedDelegate {
     
-    public func segmenter(_ segmenter: Segmenter, didSelect index: Int, withSegment: Segmenter.Segment, fromIndex: Int, fromSegment: Segmenter.Segment) {
+    public func segmenter(_ segmenter: Segmenter, didSelect index: Int, withSegment segment: Segment, fromIndex: Int, fromSegment: Segment) {
         setCurrentIndex(index, animated: false)
-        segmenterDelgate?.segmenter(segmenter, didSelect: index, withSegment: withSegment, fromIndex: index, fromSegment: fromSegment)
+        segmenterDelgate?.segmenter(segmenter, didSelect: index, withSegment: segment, fromIndex: index, fromSegment: fromSegment)
         
         // bugfix: touch to change segmenter and the segmenter's shadow not be hidden when the scroll view is scrolling
         if let fromScrollView = findScrollView(in: viewControllers?[fromIndex]) {
@@ -141,6 +141,6 @@ extension SegmentedController: SegmenterSelectedDelegate {
         guard segmenter.isShadowShouldShow, let scrollView = findScrollView(in: self.viewControllers?[index]) else {
             return
         }
-        segmenter.isShadowHidden = withSegment.isShouldHideShadow ? true : (scrollView.contentOffset.y <= 1.0)
+        segmenter.isShadowHidden = segment.isShouldHideShadow ? true : (scrollView.contentOffset.y <= 1.0)
     }
 }

@@ -19,16 +19,16 @@ class SubController: UIViewController, SegmentedControllerable  {
             return vc
         }
         
-        segmenter.segmentConfigure = .minor
+        //segmenter.segmentConfigure = .minor
         segmenter.distribution = .default
         pages = [
-            .init(title: "赤", controller: TableViewController()),
-            .init(segment: .init(title: "橙", isShouldHideShadow: true), controller: TableViewController()),
-            .init(title: "黄", controller: vc(.yellow)),
-            .init(title: "绿", controller: vc(.green)),
-            .init(title: "青", controller: vc(.cyan)),
-            .init(title: "蓝", controller: vc(.blue)),
-            .init(title: "紫", controller: vc(.purple)),
+            Page(title: "赤", controller: vc(.red)),
+            Page(title: "橙", controller: vc(.orange)),
+            Page(title: "黄", controller: vc(.yellow)),
+            Page(title: "绿", controller: vc(.green)),
+            Page(title: "青", controller: vc(.cyan)),
+            Page(title: "蓝", controller: vc(.blue)),
+            Page(title: "紫", controller: vc(.purple)),
         ]
         
         initialIndex = 1

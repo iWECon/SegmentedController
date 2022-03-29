@@ -12,10 +12,10 @@ struct SegmentedControllerKeys {
 }
 
 public struct Page {
-    public var segment: Segmenter.Segment
-    public var controller: UIViewController
+    public let segment: Segment
+    public let controller: UIViewController
     
-    public init(segment: Segmenter.Segment, controller: UIViewController) {
+    public init(segment: Segment, controller: UIViewController) {
         self.segment = segment
         self.controller = controller
     }

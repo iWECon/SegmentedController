@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Pager",
-        "repositoryURL": "https://github.com/iWECon/Pager",
-        "state": {
-          "branch": null,
-          "revision": "c6d1cf11b5a698a51e264319fe70a43723fd88f6",
-          "version": "1.0.7"
-        }
-      },
-      {
-        "package": "Segmenter",
-        "repositoryURL": "https://github.com/iWECon/Segmenter",
-        "state": {
-          "branch": null,
-          "revision": "0e523172456347eb2803c5ad143a15e536942635",
-          "version": "1.4.6"
-        }
-      },
-      {
-        "package": "YTPageController",
-        "repositoryURL": "https://github.com/iwecon/ytpagecontroller",
-        "state": {
-          "branch": null,
-          "revision": "d8d2adb778a1f7f5a0ef5a155faf7573007b2792",
-          "version": "1.1.6"
-        }
+  "pins" : [
+    {
+      "identity" : "pager",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iWECon/Pager",
+      "state" : {
+        "revision" : "c6d1cf11b5a698a51e264319fe70a43723fd88f6",
+        "version" : "1.0.7"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "segmenter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iWECon/Segmenter",
+      "state" : {
+        "revision" : "e547c4100f6c6cdf2bf384aa4d98717b015fba02",
+        "version" : "2.0.1"
+      }
+    },
+    {
+      "identity" : "ytpagecontroller",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iwecon/ytpagecontroller",
+      "state" : {
+        "revision" : "e340d1fa04a24bd00f6db4d432cfd27a4f871ad2",
+        "version" : "1.1.9"
+      }
+    }
+  ],
+  "version" : 2
 }
