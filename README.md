@@ -15,7 +15,7 @@
 #### Swift Package Manager
 
 ```
-.package(url: "https://github.com/iWECon/SegmentedController", from: "1.0.0")
+.package(url: "https://github.com/iWECon/SegmentedController", from: "2.0.0")
 ```
 
 #### Cocoapods
