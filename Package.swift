@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/iWECon/Pager", from: "1.0.0"),
-        .package(url: "https://github.com/iWECon/Segmenter", from: "1.0.0")
+        .package(url: "https://github.com/iWECon/Segmenter", from: "2.0.0")
     ],
     targets: [
         .target(name: "SegmentedController", dependencies: ["Pager", "Segmenter"]),
