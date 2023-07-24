@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name = 'SegmentedController'
-    s.version = '2.1.0'
+    s.version = '2.1.1'
     s.license = { :type => 'MIT' }
     s.homepage = 'https://github.com/iWECon/SegmentedController'
     s.authors = 'iWw'
