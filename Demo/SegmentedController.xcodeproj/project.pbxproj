@@ -15,6 +15,7 @@
 		081F65CF25A5E656000602E7 /* SegmentedControllerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */; };
 		081F65D025A5E656000602E7 /* SegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F65CE25A5E656000602E7 /* SegmentedController.swift */; };
 		081F65D425A5E67A000602E7 /* Pager in Frameworks */ = {isa = PBXBuildFile; productRef = 081F65D325A5E67A000602E7 /* Pager */; };
+		085893182A6E62F0001823BD /* SegmentedControllerTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085893172A6E62F0001823BD /* SegmentedControllerTransitionDelegate.swift */; };
 		0865379925AC05C800E69F27 /* Segmenter in Frameworks */ = {isa = PBXBuildFile; productRef = 0865379825AC05C800E69F27 /* Segmenter */; };
 		0876625125AF151D00FB311D /* SegmentedTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876624F25AF151D00FB311D /* SegmentedTableController.swift */; };
 		0876625225AF151D00FB311D /* SegmentedCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0876625025AF151D00FB311D /* SegmentedCollectionController.swift */; };
@@ -36,6 +37,7 @@
 		081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControllerable.swift; sourceTree = "<group>"; };
 		081F65CE25A5E656000602E7 /* SegmentedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedController.swift; sourceTree = "<group>"; };
 		083E0FF727F2B21F00B381C4 /* SegmentedController.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = SegmentedController.podspec; path = ../SegmentedController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		085893172A6E62F0001823BD /* SegmentedControllerTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControllerTransitionDelegate.swift; sourceTree = "<group>"; };
 		0876624F25AF151D00FB311D /* SegmentedTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedTableController.swift; sourceTree = "<group>"; };
 		0876625025AF151D00FB311D /* SegmentedCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedCollectionController.swift; sourceTree = "<group>"; };
 		0883103F25A84EC0000B362C /* SubController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				081F65CD25A5E656000602E7 /* SegmentedControllerable.swift */,
 				081F65CE25A5E656000602E7 /* SegmentedController.swift */,
 				08BC4F9725AC27F4000D3DA2 /* SegmentedControllerShadowControlable.swift */,
+				085893172A6E62F0001823BD /* SegmentedControllerTransitionDelegate.swift */,
 			);
 			path = SegmentedController;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				081F65D025A5E656000602E7 /* SegmentedController.swift in Sources */,
 				08F2D6BB25A6AF28008A629D /* ContainsTableViewViewController.swift in Sources */,
 				0876625125AF151D00FB311D /* SegmentedTableController.swift in Sources */,
+				085893182A6E62F0001823BD /* SegmentedControllerTransitionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P55DG9QH44;
+				DEVELOPMENT_TEAM = 58CW6R4WKN;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -382,7 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P55DG9QH44;
+				DEVELOPMENT_TEAM = 58CW6R4WKN;
 				INFOPLIST_FILE = SegmentedController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

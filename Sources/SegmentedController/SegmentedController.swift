@@ -8,6 +8,7 @@ open class SegmentedController: Pager {
     
     public weak var segmenter: Segmenter?
     private weak var segmenterDelgate: SegmenterSelectedDelegate?
+    public weak var transitionDelegate: SegmentedControllerTransitionDelegate?
     
     private func findScrollView(in: Any?) -> UIScrollView? {
         guard let inReflecting = `in` else { return nil }
@@ -24,10 +25,12 @@ open class SegmentedController: Pager {
         return Mirror(reflecting: inReflecting).children.first(where: { $0.value is UIScrollView })?.value as? UIScrollView
     }
     
-    public override func pageController(_ pageController: PageController, willStartTransition context: PageTransitionContext) {
+    open override func pageController(_ pageController: PageController, willStartTransition context: PageTransitionContext) {
         defer {
             super.pageController(pageController, willStartTransition: context)
         }
+        
+        transitionDelegate?.segmentedController(self, pageController: pageController, willStartTransition: context)
         
         guard let segmenter = segmenter else {
             return
@@ -76,8 +79,20 @@ open class SegmentedController: Pager {
         }
     }
     
+    open override func pageController(_ pageController: PageController, didUpdateTransition context: PageTransitionContext) {
+        super.pageController(pageController, didUpdateTransition: context)
+        
+        transitionDelegate?.segmentedController(self, pageController: pageController, didUpdateTransition: context)
+    }
+    
+    open override func pageController(_ pageController: PageController, didEndTransition context: PageTransitionContext) {
+        super.pageController(pageController, didEndTransition: context)
+        
+        transitionDelegate?.segmentedController(self, pageController: pageController, didEndTransition: context)
+    }
+    
     @discardableResult
-    public override func moveTo(_ viewController: UIViewController) -> Self {
+    open override func moveTo(_ viewController: UIViewController) -> Self {
         super.moveTo(viewController)
         
         collectionView?.alwaysBounceHorizontal = false
